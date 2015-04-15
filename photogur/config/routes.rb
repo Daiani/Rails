@@ -7,7 +7,15 @@ get 'pictures' => 'pictures#index'
 post 'pictures' => 'pictures#create'
 get 'pictures/new' => 'pictures#new'
  
-get 'picture/:id' => 'pictures#show'  #as: 'picture'
+get 'picture/:id' => 'pictures#show' 
+
+get 'pictures/:id/edit' => "pictures#edit", as: "edit_picture"
+  patch 'pictures/:id' => "pictures#update"
+
+  delete 'pictures/:id' => 'pictures#destroy', as: "delete_picture"
+
+  root 'pictures#index'
+end
 
 
 
